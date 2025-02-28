@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 120px;
+  margin-top: 26px;
+  margin-bottom: 26px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-right: 120px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Manrope', sans-serif;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #101828;
+  transition: color 0.3s ease;
+  margin-right: 32px;
+}
+
+.navLink:hover {
+  color: #0b44cd;
+}
+.logo {
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem; /* Розмір шрифту за макетом */
+  font-weight: 700;
+}
+
+.logoRental {
+  text-decoration: none;
+  color: #101828; /* Колір для "Rental" */
+  transition: color 0.3s ease; /* Плавна зміна кольору при наведенні */
+}
+.logoCar {
+  text-decoration: none;
+  color: #0b44cd; /* Колір для "Car" */
+  transition: color 0.3s ease; /* Плавна зміна кольору при наведенні */
+}
+.logo a:hover .logoRental {
+  color: #0d141f; /* Темніший відтінок для "Rental" при наведенні */
+}
+
+.logo a:hover .logoCar {
+  color: #0b44cd; /* Темніший відтінок для "Car" при наведенні */
+}
