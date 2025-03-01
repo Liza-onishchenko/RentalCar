@@ -1,7 +1,7 @@
 import css from './HomePage.module.css';
 import { Link } from 'react-router-dom';
 
-function HomePage() {
+const HomePage = () => {
   return (
     <div className={css.homePage}>
       <div className={css.catalog}>
@@ -15,6 +15,6 @@ function HomePage() {
       </div>
     </div>
   );
-}
+};
 
 export default HomePage;

@@ -2,7 +2,7 @@ import React from 'react';
 import css from './Header.module.css';
 import { Link } from 'react-router-dom';
 
-function Header() {
+const Header = () => {
   return (
     <header className={css.header}>
       <div className={css.logo}>
@@ -21,6 +21,6 @@ function Header() {
       </nav>
     </header>
   );
-}
+};
 
 export default Header;

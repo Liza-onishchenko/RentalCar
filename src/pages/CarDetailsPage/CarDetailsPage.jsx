@@ -1,7 +1,7 @@
 import React from 'react';
 
-function CarDetailsPage() {
+const CarDetailsPage = () => {
   return <div>CarDetailsPage</div>;
-}
+};
 
 export default CarDetailsPage;
