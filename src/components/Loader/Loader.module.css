@@ -1,0 +1,14 @@
+.loaderContainer {
+  text-align: center;
+  padding: 100px 0;
+  position: relative;
+}
+
+.loaderContainer.global {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8);
+}

@@ -17,25 +17,19 @@ export const fetchCars = createAsyncThunk(
         rentalPrice = '',
         minMileage = '',
         maxMileage = '',
-        limit = 8,
-        page = 1,
+        limit = '8',
+        page = '1',
       } = filters;
+
       const response = await apiInstance.get('/cars', {
-        params: {
-          brand,
-          rentalPrice,
-          minMileage,
-          maxMileage,
-          limit,
-          page,
-        },
+        params: { brand, rentalPrice, minMileage, maxMileage, limit, page },
       });
-      console.log('API Response:', response.data);
-      const { cars, totalPages } = response.data;
-      return { cars, totalPages };
+
+      const { cars, totalCars, totalPages } = response.data;
+
+      return { cars, totalCars, totalPages };
     } catch (error) {
-      const message = error.message || 'Failed to fetch cars';
-      return thunkAPI.rejectWithValue(message);
+      return thunkAPI.rejectWithValue(error.message || 'Failed to fetch cars');
     }
   }
 );
@@ -49,24 +43,21 @@ export const fetchNextCars = createAsyncThunk(
         rentalPrice = '',
         minMileage = '',
         maxMileage = '',
-        limit = 8,
-        page = 1,
+        limit = '8',
+        page = '1',
       } = filters;
+
       const response = await apiInstance.get('/cars', {
-        params: {
-          brand,
-          rentalPrice,
-          minMileage,
-          maxMileage,
-          limit,
-          page,
-        },
+        params: { brand, rentalPrice, minMileage, maxMileage, limit, page },
       });
-      console.log('Next Cars Response:', response.data);
-      return response.data;
+
+      const { cars, totalCars, totalPages } = response.data;
+
+      return { cars, totalCars, totalPages };
     } catch (error) {
-      const message = error.message || 'Failed to fetch next cars';
-      return thunkAPI.rejectWithValue(message);
+      return thunkAPI.rejectWithValue(
+        error.message || 'Failed to fetch next cars'
+      );
     }
   }
 );
@@ -76,7 +67,7 @@ export const fetchCarById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await apiInstance.get(`/cars/${id}`);
-      console.log('Car details response:', response.data);
+
       return response.data;
     } catch (error) {
       const message = error.message || 'Failed to fetch car details';

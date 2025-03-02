@@ -1,62 +1,115 @@
 .carCard {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-  width: 200px;
-  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 276px;
   position: relative;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .carCard img {
-  width: 100%;
-  height: auto;
+  width: 275px;
+  height: 268px;
+  border-radius: 14px 14px 0 0;
   object-fit: cover;
-  border-radius: 5px 5px 0 0;
 }
 
 .favoriteIcon {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 20px;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
-  color: #007bff;
+  z-index: 1;
+}
+
+.icon {
+  width: 16px;
+  height: 15px;
+  cursor: pointer;
+  color: #ccc; /* Сірий колір для неактивного серця */
+}
+
+.icon.active {
+  color: #ff0000; /* Червоний колір для активного серця */
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between; /* Вирівнювання заголовка і ціни */
+  align-items: center;
+  padding-bottom: 8px;
 }
 
 .carTitle {
-  margin: 5px 0;
-  font-size: 1.1em;
-  font-weight: bold;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 125%;
+  text-align: left;
+  margin: 0; /* Вилучено margin, оскільки він у .headerContainer */
+}
+
+.brand {
+  color: #101828; /* Чорний для бренду */
+}
+
+.model {
+  color: #3470ff; /* Синій лише для моделі */
+}
+
+.year {
+  color: #101828; /* Чорний для року */
+}
+
+.location {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9em;
+  color: #666; /* Сірий колір для локації */
+  margin: 0 0 5px 10px;
+  text-align: left;
+}
+
+.details {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9em;
+  color: #666; /* Сірий колір для типу і пробігу */
+  margin: 0 0 5px 10px;
+  text-align: left;
+}
+
+.type {
+  display: inline;
+}
+
+.mileage {
+  display: inline;
+  color: #8d929a;
 }
 
 .price {
   font-weight: bold;
-  margin: 5px 0;
-  color: #28a745;
-}
-
-.mileage {
-  font-size: 0.9em;
-  color: #666;
-  margin: 5px 0;
-}
-
-.company {
-  font-size: 0.8em;
-  color: #888;
-  margin-bottom: 10px;
+  color: #28a745; /* Зелений колір для ціни */
+  margin: 0 10px 0 0; /* Відступ праворуч */
+  text-align: right;
 }
 
 .readMoreButton {
-  padding: 5px 10px;
+  display: block;
+  width: 276px;
+  height: 44px;
+  padding: 12px 99px;
   background-color: #007bff;
   color: white;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-top: 28px;
 }
 
 .readMoreButton:hover {

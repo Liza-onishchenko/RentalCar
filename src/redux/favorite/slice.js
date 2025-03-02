@@ -2,57 +2,39 @@ import { createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-// Завантаження улюблених з localStorage
-const loadFavoritesFromLocalStorage = () => {
-  const savedFavorites = localStorage.getItem('favorites');
-  try {
-    // Якщо дані є, перевіряємо чи це масив
-    const parsedFavorites = savedFavorites ? JSON.parse(savedFavorites) : [];
-    if (Array.isArray(parsedFavorites)) {
-      return parsedFavorites;
-    } else {
-      console.error(
-        'Favorites in localStorage are not an array, resetting to empty array.'
-      );
-      return []; // Якщо це не масив, повертаємо порожній масив
-    }
-  } catch (e) {
-    console.error('Error parsing favorites from localStorage:', e);
-    return []; // Якщо є помилка, повертаємо порожній масив
-  }
+// список обраних авто з localStorage
+const initialState = {
+  favorites: JSON.parse(localStorage.getItem('favorites')) || [],
 };
-
-const initialState = loadFavoritesFromLocalStorage(); // Ініціалізація state з масиву обраних;
 
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
   reducers: {
-    toggleFavorite(state, action) {
+    toggleFavorite: (state, action) => {
       const carId = action.payload;
-      const index = state.indexOf(carId); // Перевіряємо, чи є такий carId в масиві
-      if (index === -1) {
-        state.push(carId); // Додаємо автомобіль до списку
+      if (state.favorites.includes(carId)) {
+        state.favorites = state.favorites.filter(id => id !== carId);
       } else {
-        state.splice(index, 1); // Видаляємо автомобіль зі списку
+        state.favorites.push(carId);
       }
+      localStorage.setItem('favorites', JSON.stringify(state.favorites)); // Збереження в localStorage
     },
-    clearFavorites(state) {
-      state.length = 0; // Очищаємо список обраних
+    clearFavorites: state => {
+      state.favorites = [];
+      localStorage.removeItem('favorites');
     },
   },
 });
 
-// Налаштування збереження в localStorage за допомогою redux-persist
-const favoritesPersistConfig = {
+export const { toggleFavorite, clearFavorites } = favoritesSlice.actions;
+
+const persistConfig = {
   key: 'favorites',
   storage,
 };
 
-// Дія слайсу
-export const { toggleFavorite, clearFavorites } = favoritesSlice.actions;
-
 export const favoritesReducer = persistReducer(
-  favoritesPersistConfig,
+  persistConfig,
   favoritesSlice.reducer
 );

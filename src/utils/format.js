@@ -1,6 +1,7 @@
 const formatMileage = mileage => {
-  if (!mileage && mileage !== 0) return 'N/A';
-  return `${mileage.toLocaleString()} km`;
+  if (mileage == null || mileage === undefined || isNaN(Number(mileage)))
+    return 'N/A';
+  return `${Number(mileage).toLocaleString()} km`;
 };
 
 export { formatMileage };

@@ -1,23 +1,25 @@
 .homePage {
   position: relative;
-  height: 100vh; /* Повна висота екрана для банера */
+  width: 100vw; /* Змінено на повну ширину екрану */
+  min-height: 100vh; /* Забезпечимо мінімальну висоту екрану */
+  margin: 0; /* Прибрати відступи */
+  padding: 0; /* Прибрати внутрішні відступи */
 }
 
 .catalog {
   position: relative;
-  height: 100%;
-  width: 100%;
-  background-image: url('/images/Picture-min.jpg'); /* Заміни на реальне зображення з макета */
+  width: 100vw; /* Повна ширина екрану */
+  min-height: 100vh; /* Повна висота екрану або адаптивна */
+  background-image: url('/images/car.jpg'); /* Заміни на реальне зображення */
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background-position: center;
+  background-size: cover; /* Розтягує зображення, зберігаючи пропорції */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
-  padding: 2rem;
+  color: #ffffff;
 }
 
 .catalog::before {
@@ -26,37 +28,43 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Напівпрозорий overlay для кращої читабельності тексту */
   z-index: 1;
+  content: ''; /* Додано для псевдоелементу */
 }
 
 .catalogTitle {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  margin-top: 290px; /* Залишаємо, якщо потрібно, але можна адаптувати */
+  margin-bottom: 16px;
+  font-weight: 700;
+  line-height: 120%;
+  text-align: center;
+  font-family: 'Manrope', sans-serif;
+  color: #ffffff;
   position: relative;
   z-index: 2;
 }
 
-.catalogTitle {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+.catalogP {
+  font-weight: 600;
+  line-height: 133%;
+  text-align: center;
+  font-family: 'Manrope', sans-serif;
+  color: #ffffff;
   position: relative;
+  font-size: 24px;
   z-index: 2;
+  margin-top: 0;
+  margin-bottom: 40px;
 }
 
 .catalogButton {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  color: white;
-  background-color: #007bff;
+  padding: 12px 88px;
+  height: 44px;
+  color: #ffffff;
+  background-color: #3470ff;
   border: none;
-  border-radius: 5px;
+  font-family: 'Inter', sans-serif;
+  border-radius: 12px;
   text-decoration: none;
   position: relative;
   z-index: 2;
@@ -64,5 +72,6 @@
 }
 
 .catalogButton:hover {
-  background-color: #0056b3;
+  color: #ffffff;
+  background-color: #0b44cd;
 }

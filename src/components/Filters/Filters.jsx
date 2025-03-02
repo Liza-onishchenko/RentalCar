@@ -20,9 +20,11 @@ import { fetchCars } from '../../redux/cars/operations';
 import { fetchBrands } from '../../redux/filters/operations';
 import { clearCars } from '../../redux/cars/slice';
 import css from './Filters.module.css';
+import Loader from '../Loader/Loader.jsx';
 
 const Filters = () => {
   const dispatch = useDispatch();
+
   const brand = useSelector(selectBrand);
   const rentalPrice = useSelector(selectRentalPrice);
   const minMileage = useSelector(selectMinMileage);
@@ -56,9 +58,9 @@ const Filters = () => {
     e => {
       const value = e.target.value;
       if (value === '') {
-        dispatch(setRentalPrice('')); // Скидаємо ціну до початкового стану
+        dispatch(setRentalPrice('')); // Скид ціни до початкового стану
       } else {
-        dispatch(setRentalPrice(value)); // Встановлюємо обрану ціну
+        dispatch(setRentalPrice(value)); // Встановить обрану ціну
       }
     },
     [dispatch]
@@ -91,31 +93,35 @@ const Filters = () => {
     );
   }, [dispatch, brand, rentalPrice, localMinMileage, localMaxMileage]);
 
-  const handleClear = useCallback(() => {
-    dispatch(clearFilters());
-    dispatch(clearCars());
-    dispatch(
-      fetchCars({ brand: '', rentalPrice: '', minMileage: '', maxMileage: '' })
-    );
-  }, [dispatch]);
-
   // Динамічний список цін
   const priceOptions = useMemo(() => {
-    const basePrices = ['30', '40', '50', '60', '70', '80'];
+    const basePrices = [
+      '30',
+      '40',
+      '50',
+      '60',
+      '70',
+      '80',
+      '90',
+      '100',
+      '110',
+      '120',
+      '130',
+    ];
 
-    // Якщо вибрано конкретну ціну, то показуємо всі ціни, окрім вибраної
     if (['30', '40', '50', '60', '70', '80'].includes(rentalPrice)) {
       return [
         `To $${rentalPrice}`,
-        ...basePrices.filter(price => price !== rentalPrice), // Відображаємо всі ціни, окрім вибраної
+        ...basePrices.filter(price => price !== rentalPrice), // Відображає всі ціни, окрім вибраної
       ];
     }
-
-    // Якщо ціна не вибрана, то відображаємо всі опції
+    // Якщо ціна не вибрана, то відображає всі опції
     return [...basePrices];
   }, [rentalPrice]);
 
-  if (isLoading) return <div>Loading filters...</div>;
+  if (isLoading) {
+    return <Loader isLoading={true} size={50} />;
+  }
   if (error) return <div>Error: {error}</div>;
 
   return (
@@ -144,6 +150,7 @@ const Filters = () => {
           className={css.select}
           disabled={isLoading}
         >
+          <option value="">Choose a price</option>
           {priceOptions.map(p => (
             <option
               key={p}
@@ -170,7 +177,7 @@ const Filters = () => {
             value={localMaxMileage}
             onChange={handleMaxMileageChange}
             placeholder="To"
-            className={css.input}
+            className={css.input1}
             disabled={isLoading}
           />
         </div>
@@ -181,13 +188,6 @@ const Filters = () => {
         disabled={isLoading}
       >
         Search
-      </button>
-      <button
-        className={css.clearButton}
-        onClick={handleClear}
-        disabled={isLoading}
-      >
-        Clear Filters
       </button>
     </div>
   );

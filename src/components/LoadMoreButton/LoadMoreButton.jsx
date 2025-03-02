@@ -1,6 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectPage, selectTotalPages } from '../../redux/cars/selector.js';
+import {
+  selectIsLoading,
+  selectPage,
+  selectTotalPages,
+} from '../../redux/cars/selector.js';
 import {
   selectBrand,
   selectMaxMileage,
@@ -10,6 +14,7 @@ import {
 import css from './LoadMoreButton.module.css';
 import { setPage } from '../../redux/cars/slice.js';
 import { fetchNextCars } from '../../redux/cars/operations.js';
+import Loader from '../Loader/Loader.jsx';
 
 const LoadMoreButton = () => {
   const dispatch = useDispatch();
@@ -20,6 +25,7 @@ const LoadMoreButton = () => {
   const rentalPrice = useSelector(selectRentalPrice);
   const minMileage = useSelector(selectMinMileage);
   const maxMileage = useSelector(selectMaxMileage);
+  const isLoading = useSelector(selectIsLoading);
 
   const handleLoadMore = () => {
     const nextPage = currentPage + 1;
@@ -37,6 +43,10 @@ const LoadMoreButton = () => {
       );
     }
   };
+
+  if (isLoading) {
+    return <Loader isLoading={true} size={50} />;
+  }
 
   return (
     <button

@@ -1,0 +1,96 @@
+.bookingForm {
+  margin-top: 40px;
+  padding: 32px;
+  width: 640px;
+  height: 488px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.bookingForm h3 {
+  text-align: left;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  margin: 0 0 8px 0;
+  color: #101828;
+}
+
+.bookingForm p {
+  text-align: left;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.bookingForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.bookingForm div {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.bookingForm label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+.datePickerContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendarPopup {
+  width: 330px;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: 10;
+
+  height: 284px;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.bookingForm .input {
+  background-color: #f7f7f7;
+  font-size: 14px;
+  color: #666;
+  height: 48px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 12px 20px;
+  width: 576px;
+  border: none; /* Прибираємо бордер */
+  outline: none; /* Прибираємо обводку при фокусі */
+}
+
+.bookingForm .error {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.bookingForm .button {
+  margin-top: 20px;
+  padding: 12px 51px;
+  background-color: #3470ff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 156px;
+  height: 44px;
+  text-align: center;
+  display: inline-block; /* Визначаємо елемент як inline-block для нормального центрування */
+}

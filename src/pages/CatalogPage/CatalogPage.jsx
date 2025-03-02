@@ -12,6 +12,7 @@ import {
   selectError,
   selectIsLoading,
   selectPage,
+  selectTotalPages,
 } from '../../redux/cars/selector.js';
 import {
   selectBrand,
@@ -19,6 +20,7 @@ import {
   selectMinMileage,
   selectRentalPrice,
 } from '../../redux/filters/selector.js';
+import Loader from '../../components/Loader/Loader.jsx';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -27,13 +29,13 @@ const CatalogPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const page = useSelector(selectPage);
+  const totalPages = useSelector(selectTotalPages);
   const brand = useSelector(selectBrand);
   const rentalPrice = useSelector(selectRentalPrice);
   const minMileage = useSelector(selectMinMileage);
   const maxMileage = useSelector(selectMaxMileage);
 
   useEffect(() => {
-    // Очищаємо попередні результати перед новим запитом
     dispatch(clearCars());
     dispatch(
       fetchCars({
@@ -41,13 +43,16 @@ const CatalogPage = () => {
         rentalPrice,
         minMileage,
         maxMileage,
-        limit: 8, // Виправлено опечатку
-        page,
+        limit: '8',
+        page: page.toString(),
       })
     );
   }, [dispatch, brand, rentalPrice, minMileage, maxMileage, page]);
 
-  if (isLoading && page === 1) return <div>Loading...</div>; // Показуємо Loader лише для першої сторінки
+  if (isLoading && page === 1) {
+    return <Loader isLoading={true} size={96} />;
+  }
+
   if (error) return <div>Error: {error}</div>;
 
   return (
@@ -64,7 +69,7 @@ const CatalogPage = () => {
           mileage: formatMileage(car.mileage),
         }))}
       />
-      <LoadMoreButton />
+      {page < totalPages && <LoadMoreButton />}
     </div>
   );
 };

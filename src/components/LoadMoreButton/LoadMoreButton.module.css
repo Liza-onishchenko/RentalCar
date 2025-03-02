@@ -1,4 +1,16 @@
 .loadMore {
-  color: rgb(255, 255, 255);
-  background-color: blue;
+  margin-top: 80px;
+  margin-bottom: 124px;
+  background-color: transparent; /* робить фон кнопки прозорим */
+  border: 1px solid #3470ff; /* встановлює рамку, щоб кнопка залишалась видимою */
+  color: #000; /* колір тексту */
+  padding: 10px 20px; /* відступи */
+  width: 156px;
+  height: 44px;
+  font-size: 16px; /* розмір шрифту */
+  cursor: pointer; /* змінює курсор на pointer при наведенні */
+}
+
+.loadMore:hover {
+  border: 1px solid #0b44cd;
 }

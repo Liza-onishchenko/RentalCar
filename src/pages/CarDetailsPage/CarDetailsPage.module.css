@@ -1,0 +1,119 @@
+.carDetailsPage {
+  margin-right: 120px;
+  margin-top: 84px;
+  display: flex;
+  gap: 72px;
+  margin-left: 120px;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.carImage {
+  height: 512px;
+  width: 640px;
+  border-radius: 19px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.carInfo {
+  text-align: left;
+  margin-right: 120px;
+  margin-bottom: 104px;
+}
+
+.carInfo h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.5em;
+  margin: 0 0 10px 0;
+  color: #333;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  font-family: 'Manrope', sans-serif;
+}
+
+.carInfo .carId {
+  padding-left: 16px;
+  font-size: 0.8em;
+  color: #666;
+}
+
+.carInfo .location,
+.carInfo .mileage,
+.carInfo .price {
+  margin: 5px 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #101828;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carInfo .price {
+  color: #3470ff;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+}
+.infoDetal {
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 68px;
+  margin-top: 32px;
+}
+
+.carInfo h3 {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  font-family: 'Manrope', sans-serif;
+}
+
+.carInfo ul {
+  list-style-type: none;
+  font-family: 'Manrope', sans-serif;
+  padding: 0;
+  margin-bottom: 110px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+  color: #101828;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.conditions,
+.carSpecs,
+.accessories {
+  margin-top: 10px;
+}
+
+.bookingForm {
+  width: 100%;
+  max-width: 300px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

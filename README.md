@@ -1,12 +1,65 @@
-# React + Vite
+# Car Rental
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Опис
 
-Currently, two official plugins are available:
+Car Rental — це веб-додаток, розроблений для спрощення процесу оренди
+автомобілів. Додаток дозволяє користувачам переглядати доступні автомобілі,
+додавати їх до обраного, бронювати транспортні засоби та переглядати детальну
+інформацію про кожен автомобіль. Інтерфейс зручний і інтуїтивно зрозумілий, а
+функціонал включає інтерактивний календар для вибору дат оренди.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Основні функції
 
-## Expanding the ESLint configuration
+- Перегляд списку доступних автомобілів з деталями (бренд, модель, рік, ціна,
+  пробіг тощо).
+- Додавання автомобілів до списку обраного з можливістю збереження при оновленні
+  сторінки.
+- Інтерактивний календар для вибору дат оренди
+- Форма бронювання з полями для введення дат і кнопкою відправки.
+- Адаптивний дизайн із сучасними стилями та анімаціями.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Інструкції з установки
+
+### Передумови
+
+- Node.js (версія 14.x або вище)
+- npm (або yarn)
+
+### Кроки установки
+
+1. Клонуйте репозиторій:
+
+   git clone https://github.com/Liza-onishchenko/RentalCar
+
+   ```
+
+   2.Перейдіть до директорії проєкту
+
+   cd car-rental-app
+
+   3.Встановіть залежності:
+
+   npm install
+
+   або
+
+   yarn install
+   ```
+
+   4.Запустіть проєкт у режимі розробки
+
+   npm start
+
+   або
+
+   yarn start
+
+### Інструкції з використання
+
+Після запуску проєкту ви побачите головну сторінку з переліком доступних
+автомобілів. Натисніть на іконку сердечка у верхньому правому куті картки
+автомобіля, щоб додати його до обраного. Повторне натискання видалить його з
+обраного. Для бронювання виберіть автомобіль і натисніть "Read more", щоб
+перейти до детальної сторінки. Використовуйте календар у формі бронювання, щоб
+обрати дату початку та кінця оренди. Натисніть кнопку "Send", щоб завершити
+бронювання (наразі це демонстраційна функці)

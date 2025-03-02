@@ -1,21 +1,21 @@
 import React from 'react';
 import css from './Header.module.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import LogoIcon from '../LogoIcon/LogoIcon.jsx';
 
 const Header = () => {
   return (
     <header className={css.header}>
       <div className={css.logo}>
         <Link to="/">
-          <span className={css.logoRental}>Rental</span>
-          <span className={css.logoCar}>Car</span>
+          <LogoIcon />
         </Link>
       </div>
       <nav className={css.nav}>
         <Link to="/" className={css.navLink}>
           Home
         </Link>
-        <Link to="/catalog" className={css.navLink}>
+        <Link to="/catalog" className={css.navLink1}>
           Catalog
         </Link>
       </nav>

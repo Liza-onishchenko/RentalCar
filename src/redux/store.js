@@ -1,4 +1,3 @@
-// src/store/store.js
 import { configureStore } from '@reduxjs/toolkit';
 import { carsReducer } from './cars/slice.js';
 import { filtersReducer } from './filters/slice.js';
@@ -28,5 +27,5 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store); // Експортуємо persistor для PersistGate
+export const persistor = persistStore(store);
 export default store;

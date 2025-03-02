@@ -6,7 +6,7 @@ export const fetchBrands = createAsyncThunk(
     try {
       const response = await fetch('https://car-rental-api.goit.global/brands');
       const data = await response.json();
-      return data; // Повертаємо масив брендів
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message || 'Couldnt find a brand');
     }

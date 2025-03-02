@@ -60,7 +60,3 @@ export const {
   clearFilters,
 } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
-
-export const selectBrands = state => state.filters.brands;
-export const selectIsLoading = state => state.filters.isLoading;
-export const selectError = state => state.filters.error;
