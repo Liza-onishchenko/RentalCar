@@ -14,7 +14,6 @@ import {
   setRentalPrice,
   setMinMileage,
   setMaxMileage,
-  clearFilters,
 } from '../../redux/filters/slice';
 import { fetchCars } from '../../redux/cars/operations';
 import { fetchBrands } from '../../redux/filters/operations';

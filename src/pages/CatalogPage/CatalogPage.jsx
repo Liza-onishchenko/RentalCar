@@ -20,7 +20,6 @@ import {
   selectMinMileage,
   selectRentalPrice,
 } from '../../redux/filters/selector.js';
-import Loader from '../../components/Loader/Loader.jsx';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -48,10 +47,6 @@ const CatalogPage = () => {
       })
     );
   }, [dispatch, brand, rentalPrice, minMileage, maxMileage, page]);
-
-  if (isLoading && page === 1) {
-    return <Loader isLoading={true} size={96} />;
-  }
 
   if (error) return <div>Error: {error}</div>;
 

@@ -2,83 +2,67 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchCarById } from '../../redux/cars/operations';
-import Loader from '../../components/Loader/Loader.jsx';
-import {
-  selectSelectedCar,
-  selectIsLoading,
-  selectError,
-} from '../../redux/cars/selector';
+import { selectSelectedCar, selectError } from '../../redux/cars/selector'; // Видалено selectIsLoading
 import BookingForm from '../../components/BookingForm/BookingForm';
 import css from './CarDetailsPage.module.css';
 
 const CarDetailsPage = () => {
   const { id } = useParams();
-
   const dispatch = useDispatch();
-
   const car = useSelector(selectSelectedCar);
-  const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
   useEffect(() => {
+    console.log('Fetching car with id:', id);
     dispatch(fetchCarById(id));
-  }, [dispatch, id]); // Ефект для завантаження деталей при зміні id
+  }, [dispatch, id]);
 
   if (error) return <div>Error: {error}</div>;
   if (!car) return <div>Car not found</div>;
 
-  const safeYear = car.year;
-
-  const safeMileage = Number(car.mileage) || 0;
-
+  const safeYear = car?.year || 'N/A';
+  const safeMileage = Number(car?.mileage) || 0;
   const rentalConditionsArray =
-    typeof car.rentalConditions === 'string'
+    typeof car?.rentalConditions === 'string'
       ? car.rentalConditions.split(', ')
-      : car.rentalConditions;
-
+      : car?.rentalConditions || [];
   const accessoriesAndFunctionalities = [
-    // Об'єднаний масив аксесуарів і функціональностей
-    ...(car.accessories || []),
-    ...(car.functionalities || []),
+    ...(car?.accessories || []),
+    ...(car?.functionalities || []),
   ];
-
   const locationPart =
-    car.address.split(', ').slice(1).join(', ') || 'Unknown Location';
-
-  const displayId = `Id: ${String(car.id).replace(/-/g, '').slice(0, 4)}`;
+    car?.address?.split(', ').slice(1).join(', ') || 'Unknown Location';
+  const displayId = `Id: ${String(car?.id).replace(/-/g, '').slice(0, 4)}`;
 
   return (
     <div className={css.carDetailsPage}>
-      <Loader isLoading={isLoading} />
       <div className={css.leftColumn}>
         <img
-          src={car.img}
-          alt={`${car.brand} ${car.model}`}
+          src={car?.img || 'https://picsum.photos/300/200'}
+          alt={`${car?.brand} ${car?.model}`}
           className={css.carImage}
         />
         <BookingForm carId={id} />
       </div>
       <div className={css.carInfo}>
         <h1>
-          {car.brand} {car.model}, {safeYear}
+          {car?.brand} {car?.model}, {safeYear}
           <span className={css.carId}>{displayId}</span>
         </h1>
         <p className={css.location}>
           <svg className={css.icon}>
-            <use href={`/images/icons.svg#location`} />
+            <use href="/images/icons.svg#location" />
           </svg>
           {locationPart} {safeMileage.toLocaleString()} km
         </p>
-
-        <p className={css.price}>{car.rentalPrice}$</p>
-        <p className={css.infoDetal}>{car.description}</p>
-
+        <p className={css.price}>{car?.rentalPrice || 'N/A'}$</p>
+        <p className={css.infoDetal}>{car?.description || 'No description'}</p>
         <h3>Rental Conditions:</h3>
         <ul className={css.conditions}>
           {rentalConditionsArray.map((condition, index) => (
             <li key={index} className={css.listItem}>
               <svg className={css.icon}>
-                <use href={`/images/icons.svg#icon-check`} />
+                <use href="/images/icons.svg#icon-check" />
               </svg>
               {condition}
             </li>
@@ -88,27 +72,27 @@ const CarDetailsPage = () => {
         <ul className={css.specs}>
           <li className={css.listItem}>
             <svg className={css.icon}>
-              <use href={`/images/icons.svg#calendar`} />
+              <use href="/images/icons.svg#calendar" />
             </svg>
             Year: {safeYear}
           </li>
           <li className={css.listItem}>
             <svg className={css.icon}>
-              <use href={`/images/icons.svg#car`} />
+              <use href="/images/icons.svg#car" />
             </svg>
-            Type: {car.type}
+            Type: {car?.type || 'N/A'}
           </li>
           <li className={css.listItem}>
             <svg className={css.icon}>
-              <use href={`/images/icons.svg#icon-document`} />
+              <use href="/images/icons.svg#icon-document" />
             </svg>
-            Fuel Consumption: {car.fuelConsumption}
+            Fuel Consumption: {car?.fuelConsumption || 'N/A'}
           </li>
           <li className={css.listItem}>
             <svg className={css.icon}>
-              <use href={`/images/icons.svg#icon-star`} />
+              <use href="/images/icons.svg#icon-star" />
             </svg>
-            Engine Size: {car.engineSize}
+            Engine Size: {car?.engineSize || 'N/A'}
           </li>
         </ul>
         <h3>Accessories and functionalities:</h3>
@@ -116,7 +100,7 @@ const CarDetailsPage = () => {
           {accessoriesAndFunctionalities.map((item, index) => (
             <li key={index} className={css.listItem}>
               <svg className={css.icon}>
-                <use href={`/images/icons.svg#icon-check`} />
+                <use href="/images/icons.svg#icon-check" />
               </svg>
               {item}
             </li>
