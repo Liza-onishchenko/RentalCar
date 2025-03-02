@@ -1,5 +1,5 @@
-import css from './CatalogPage.module.css';
 import React, { useEffect } from 'react';
+import css from './CatalogPage.module.css';
 import Filters from '../../components/Filters/Filters.jsx';
 import CarList from '../../components/CarList/CarList.jsx';
 import LoadMoreButton from '../../components/LoadMoreButton/LoadMoreButton.jsx';
