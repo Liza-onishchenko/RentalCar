@@ -93,4 +93,10 @@
   height: 44px;
   text-align: center;
   display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.bookingForm .button:hover {
+  background-color: #0b44cd;
+  color: white;
 }

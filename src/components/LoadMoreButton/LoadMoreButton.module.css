@@ -9,6 +9,7 @@
   height: 44px;
   font-size: 16px;
   cursor: pointer;
+  text-align: center;
 }
 
 .loadMore:hover {
