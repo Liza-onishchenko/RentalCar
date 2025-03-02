@@ -3,9 +3,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   margin-top: 56px;
-  /* max-width: calc(100% - 240px); Зменшуємо ширину на два відступи по 120px */
-  margin-left: 120px; /* Відступ 120px з лівого боку */
-  margin-right: 120px; /* Відступ 120px з правого боку */
+  margin-left: 120px;
+  margin-right: 120px;
 }
 
 .noCars {

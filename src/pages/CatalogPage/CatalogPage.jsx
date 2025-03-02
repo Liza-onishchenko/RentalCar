@@ -36,7 +36,7 @@ const CatalogPage = () => {
   const maxMileage = useSelector(selectMaxMileage);
 
   useEffect(() => {
-    dispatch(clearCars());
+    dispatch(clearCars()); // Очищає список автомобілів перед новим запитом
     dispatch(
       fetchCars({
         brand,

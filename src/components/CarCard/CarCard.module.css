@@ -32,16 +32,12 @@
   width: 16px;
   height: 15px;
   cursor: pointer;
-  color: #ccc; /* Сірий колір для неактивного серця */
-}
-
-.icon.active {
-  color: #ff0000; /* Червоний колір для активного серця */
+  color: #ccc;
 }
 
 .headerContainer {
   display: flex;
-  justify-content: space-between; /* Вирівнювання заголовка і ціни */
+  justify-content: space-between;
   align-items: center;
   padding-bottom: 8px;
 }
@@ -52,25 +48,25 @@
   font-weight: 500;
   line-height: 125%;
   text-align: left;
-  margin: 0; /* Вилучено margin, оскільки він у .headerContainer */
+  margin: 0;
 }
 
 .brand {
-  color: #101828; /* Чорний для бренду */
+  color: #101828;
 }
 
 .model {
-  color: #3470ff; /* Синій лише для моделі */
+  color: #3470ff;
 }
 
 .year {
-  color: #101828; /* Чорний для року */
+  color: #101828;
 }
 
 .location {
   font-family: 'Manrope', sans-serif;
   font-size: 0.9em;
-  color: #666; /* Сірий колір для локації */
+  color: #666;
   margin: 0 0 5px 10px;
   text-align: left;
 }
@@ -78,7 +74,7 @@
 .details {
   font-family: 'Manrope', sans-serif;
   font-size: 0.9em;
-  color: #666; /* Сірий колір для типу і пробігу */
+  color: #666;
   margin: 0 0 5px 10px;
   text-align: left;
 }
@@ -94,8 +90,8 @@
 
 .price {
   font-weight: bold;
-  color: #28a745; /* Зелений колір для ціни */
-  margin: 0 10px 0 0; /* Відступ праворуч */
+  color: #28a745;
+  margin: 0 10px 0 0;
   text-align: right;
 }
 

@@ -1,19 +1,19 @@
 .homePage {
   position: relative;
-  width: 100vw; /* Змінено на повну ширину екрану */
-  min-height: 100vh; /* Забезпечимо мінімальну висоту екрану */
-  margin: 0; /* Прибрати відступи */
-  padding: 0; /* Прибрати внутрішні відступи */
+  width: 100vw; /* повну ширинф екрану */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .catalog {
   position: relative;
-  width: 100vw; /* Повна ширина екрану */
-  min-height: 100vh; /* Повна висота екрану або адаптивна */
-  background-image: url('/images/car.jpg'); /* Заміни на реальне зображення */
+  width: 100vw;
+  min-height: 100vh; /* Повна висота екрану */
+  background-image: url('/images/car.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; /* Розтягує зображення, зберігаючи пропорції */
+  background-size: cover; /* Розтягує зображення зберігаючи пропорції */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,11 +29,11 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  content: ''; /* Додано для псевдоелементу */
+  content: ''; /* для псевдоелементу */
 }
 
 .catalogTitle {
-  margin-top: 290px; /* Залишаємо, якщо потрібно, але можна адаптувати */
+  margin-top: 290px;
   margin-bottom: 16px;
   font-weight: 700;
   line-height: 120%;

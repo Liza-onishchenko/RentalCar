@@ -70,8 +70,8 @@
   border-radius: 12px;
   padding: 12px 20px;
   width: 576px;
-  border: none; /* Прибираємо бордер */
-  outline: none; /* Прибираємо обводку при фокусі */
+  border: none;
+  outline: none;
 }
 
 .bookingForm .error {
@@ -92,5 +92,5 @@
   width: 156px;
   height: 44px;
   text-align: center;
-  display: inline-block; /* Визначаємо елемент як inline-block для нормального центрування */
+  display: inline-block;
 }

@@ -1,13 +1,13 @@
 .filters {
   display: flex;
-  width: 924px; /* Адаптивна ширина */
-  max-width: 800px; /* Обмеження для великих екранів */
+  width: 924px;
+  max-width: 800px;
   height: 68px;
   gap: 16px;
   margin-top: 84px;
   align-items: center;
   margin-left: auto;
-  margin-right: auto; /* Центруємо контейнер */
+  margin-right: auto;
 }
 
 .filterGroup {
@@ -16,7 +16,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 200px; /* Обмеження для кожного фільтра */
+  max-width: 200px;
 }
 
 .filterGroup label {
@@ -36,11 +36,10 @@
   height: 40px;
   max-height: 200px;
   overflow-y: auto;
-  /*  appearance: none;Прибираємо стандартну стрілку */
   background-color: #dadde1;
   cursor: pointer;
-  width: 100%; /* Заповнює батьківський контейнер */
-  box-sizing: border-box; /* Включаємо padding у ширину */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .select:disabled {

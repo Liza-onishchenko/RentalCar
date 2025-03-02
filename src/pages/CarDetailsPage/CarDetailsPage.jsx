@@ -22,7 +22,7 @@ const CarDetailsPage = () => {
 
   useEffect(() => {
     dispatch(fetchCarById(id));
-  }, [dispatch, id]);
+  }, [dispatch, id]); // Ефект для завантаження деталей при зміні id
 
   if (error) return <div>Error: {error}</div>;
   if (!car) return <div>Car not found</div>;
@@ -37,6 +37,7 @@ const CarDetailsPage = () => {
       : car.rentalConditions;
 
   const accessoriesAndFunctionalities = [
+    // Об'єднаний масив аксесуарів і функціональностей
     ...(car.accessories || []),
     ...(car.functionalities || []),
   ];

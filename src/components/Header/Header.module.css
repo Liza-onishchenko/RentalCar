@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw; /* Розтягуємо на всю ширину viewport */
-  padding-left: 120px; /* Внутрішній лівий відступ */
-  padding-right: 120px; /* Внутрішній правий відступ */
-  height: 68px; /* Висота як на макеті */
-  background-color: #f2f4f7; /* Фон на всю ширину */
+  width: 100vw;
+  padding-left: 120px;
+  padding-right: 120px;
+  height: 68px;
+  background-color: #f2f4f7;
   text-align: center;
 }
 .nav {
